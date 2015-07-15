@@ -1,6 +1,8 @@
 # fontography
 SASS font registry. Stores a precise list of fonts for use in a project.
 
+The font registry allows you to apply set of styles across an entire project efficiently and manage all of them in a single location.
+
 # Usage
 
     // Declare a font style.
@@ -41,10 +43,53 @@ SASS font registry. Stores a precise list of fonts for use in a project.
   </tr>
   <tr>
     <td>$fonto-name</td>
-    <td>Default name for calling styles. Defaults to 'normal.'</td>
+    <td>Default name for styles when calling fontography. Defaults to 'normal.'</td>
+  </tr>
+  <tr>
+    <td>$fonto-color</td>
+    <td>Override the color of a font when called fontography. Defaults to false.</td>
+  </tr>
+  <tr>
+    <td>$fonto-debug</td>
+    <td>Print the name of the selected font style in the CSS every time fontography is called. Useful for debugging. Defaults to false.</td>
+  </tr>
+  <tr>
+    <td>$fonto-style-some-CSS-style</td>
+    <td>Used to set font properties in fontography-register-style. Each value defaults to false.</td>
+  </tr>
+  <tr>
+    <td>$fonto-style-hover-some-CSS-style</td>
+    <td>Used to set font properties in fontography-register-style when an element is hovered over. Each value defaults to false.</td>
+  </tr>
+  <tr>
+    <td>$fonto-style-active-some-CSS-style</td>
+    <td>Used to set font properties in fontography-register-style when an element is in an active state. Each value defaults to false.</td>
+  </tr>
+  <tr>
+    <td>$fonto-style-focus-some-CSS-style</td>
+    <td>Used to set font properties in fontography-register-style when an element is in in focus. Each value defaults to false.</td>
   </tr>
 </table>
 
 # Supported Font Properties
 
+Each property is supported in hover, focus and active states.
+
+* color
+* size
+* lines
+* family
+* weight
+* text-decoration
+* text-transform
+* letter-spacing
+* font-style
+* padding
+* margin
+* text-align
+* text-shadow
+* border-top
+* border-bottom
+* border-left
+* border-right
     
