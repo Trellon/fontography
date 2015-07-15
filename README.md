@@ -108,9 +108,9 @@ yet can be centrally managed.
 
 Yep. But it's easy to switch to sass-maps, when you have a rendering engine that supports them. 
 
-#### Is one approach faster than another?
+#### Is one engine faster than another?
 
-Nope. With around 100 styles in the registry, there does not appear to be an impact on performance.
+Nope. With around 100 styles in the registry, there does not appear to be an impact on performance when using maps or extend statements.
 
 
 
