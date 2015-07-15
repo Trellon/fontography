@@ -13,9 +13,24 @@ SASS font registry. Stores a precise list of fonts for use in a project.
       $fonto-style-weight: 500
     );
     
-    // Use it in your theme.
+    // Use it in your stylesheets.
     div.some-text {
       @include fontography('some-style');
     }
+    // This will generate the identical font styles whenever the name is called.
+    div.some-other-text {
+      @include fontography('some-style');
+    }
+
+# Default variables
+
+<table>
+  <tr>
+    <th>$fonto-engine</th>
+    <th>Sets the engine. Tells fontography to use sass-maps or extend statements for generating the maps. Valid values are 'maps' and 'extend.' Defaults to 'extend.'</th>
+  </tr>
+ </table>
+
+# Supported Font Properties
 
     
