@@ -101,11 +101,16 @@ It means you only have to go one place to change the way fonts are handled in a 
 
 #### Why not just use extend statements?
 
-Giant blocks of selectors in SASS makes it unreadable. The sass-maps engine consistently applies styles to multiple places in the stylesheets.
+Giant blocks of selectors in SASS makes it unreadable. The sass-maps engine applies styles to multiple places in the stylesheets. The code is simpler to understand, 
+yet can be centrally managed.
 
 #### But you do use extend statements, by default.
 
 Yep. But it's easy to switch to sass-maps, when you have a rendering engine that supports them. 
+
+#### Is one approach faster than another?
+
+Nope. With around 100 styles in the registry, there does not appear to be an impact on performance.
 
 
 
