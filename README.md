@@ -95,15 +95,15 @@ Each property is supported in hover, focus and active states.
 
 # FAQ
 
-## What is the benefit of organizing all your font styles in a single file?
+### What is the benefit of organizing all your font styles in a single file?
 
-It means you only have to go one place to change the way fonts are handled in a site.
+It means you only have to go one place to change the way fonts are handled in a project.
 
-## Why not just use extend statements?
+### Why not just use extend statements?
 
 Giant blocks of selectors in SASS makes it unreadable. The sass-maps engine consistently applies styles to multiple places in the stylesheets.
 
-## But you do use extend statements, by default.
+### But you do use extend statements, by default.
 
 Yep. But it's easy to switch to sass-maps, when you have a rendering engine that supports them. 
 
