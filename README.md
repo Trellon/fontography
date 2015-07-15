@@ -26,10 +26,14 @@ SASS font registry. Stores a precise list of fonts for use in a project.
 
 <table>
   <tr>
+    <th>Variable</th>
+    <th>Description</th>
+  </tr>
+  <tr>
     <th>$fonto-engine</th>
     <th>Sets the engine. Tells fontography to use sass-maps or extend statements for generating the maps. Valid values are 'maps' and 'extend.' Defaults to 'extend.'</th>
   </tr>
- </table>
+</table>
 
 # Supported Font Properties
 
