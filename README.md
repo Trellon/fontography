@@ -17,9 +17,15 @@ SASS font registry. Stores a precise list of fonts for use in a project.
     div.some-text {
       @include fontography('some-style');
     }
+    
     // This will generate the identical font styles whenever the name is called.
     div.some-other-text {
       @include fontography('some-style');
+    }
+
+    // This will fail without error since the font style does not exist.
+    div.some-other-text {
+      @include fontography('style-some');
     }
 
 # Default variables
@@ -32,6 +38,10 @@ SASS font registry. Stores a precise list of fonts for use in a project.
   <tr>
     <td>$fonto-engine</td>
     <td>Sets the engine. Tells fontography to use sass-maps or extend statements for generating the maps. Valid values are 'maps' and 'extend.' Defaults to 'extend.'</td>
+  </tr>
+  <tr>
+    <td>$fonto-name</td>
+    <td>Default name for calling styles. Defaults to 'normal.'</td>
   </tr>
 </table>
 
