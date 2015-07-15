@@ -1,0 +1,90 @@
+/**
+ * @file
+ * Fontography
+ *
+ * SASS font registry. Stores a precise list of fonts for use in a project.
+ *
+ */
+
+/**
+ * DEFAULT VARIABLES
+ * Default settings for fontography.
+ */
+
+// FONTOGRAPY
+// This is the main style registry
+$fontography:                  () !default;
+$fontography-prefix:           ".hey-fontography-" !default;
+
+/**
+ * FONTOGRAPHY DEFAULTS
+ * These values affect the way fontography works
+ */
+
+// Name of the font style. Defaults to normal.
+$fonto-style:                  fales !default;
+
+// Color of the font. This is the single property that can be overridden.
+$fonto-color:                  false !default;
+
+// Debug. Prints the name of the font when fontography is called. Defaults to false.
+$fonto-debug:                  false !default;
+
+// Engine. Tells fontography to use sass-maps or extend statements for generating the maps. Valid values are 'maps' and 'extend.' Defaults to 'extend.' 
+$fonto-engine:                 engine !default;
+
+
+/**
+ * FONT PROPERTIES
+ * Each of the following font properties is supported by fontography
+ */
+$fonto-style-name:                     false !default;
+$fonto-style-color:                    false !default;
+$fonto-style-size:                     false !default;
+$fonto-style-lines:                    false !default;
+$fonto-style-family:                   false !default;
+$fonto-style-weight:                   false !default;
+$fonto-style-text-decoration:          false !default;
+$fonto-style-text-transform:           false !default;
+$fonto-style-letter-spacing:           false !default;
+$fonto-style-font-style:               false !default;
+$fonto-style-padding:                  false !default;
+$fonto-style-margin:                   false !default;
+$fonto-style-text-align:               false !default;
+$fonto-style-text-shadow:              false !default;
+$fonto-style-border-top:               false !default;
+$fonto-style-border-bottom:            false !default;
+$fonto-style-border-left:              false !default;
+$fonto-style-border-right:             false !default;
+$fonto-style-hover-color:              false !default;
+$fonto-style-hover-weight:             false !default;
+$fonto-style-hover-font-style:         false !default;
+$fonto-style-hover-padding:            false !default;
+$fonto-style-hover-margin:             false !default;
+$fonto-style-hover-text-decoration:    false !default;
+$fonto-style-hover-text-shadow:        false !default;
+$fonto-style-active-color:             false !default;
+$fonto-style-active-weight:            false !default;
+$fonto-style-active-font-style:        false !default;
+$fonto-style-active-padding:           false !default;
+$fonto-style-active-margin:            false !default;
+$fonto-style-active-text-decoration:   false !default;
+$fonto-style-active-text-shadow:       false !default;
+$fonto-style-focus-color:              false !default;
+$fonto-style-focus-weight:             false !default;
+$fonto-style-focus-font-style:         false !default;
+$fonto-style-focus-padding:            false !default;
+$fonto-style-focus-margin:             false !default;
+$fonto-style-focus-text-decoration:    false !default;
+$fonto-style-focus-text-shadow:        false !default;
+
+// select the engine
+@if $fonto-engine == 'extend' {
+  @include "internal/fontography-extend";
+}
+@if $fonto-engine == 'extend' {
+  @include "internal/fontography-maps";
+}
+
+
+  

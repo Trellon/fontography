@@ -1,0 +1,260 @@
+/**
+ * @file
+ * fontography-extend
+ *
+ * SASS font registry. Stores a precise list of fonts for use in a project.
+ * Uses extend statements to apply fonts to different selectors. This method is compatible with any version of sass but creates very large lists of selectors in a stylesheet..
+ */
+ 
+/**
+ * FONTOGRAPHY
+ *
+ * Displays registered fonts.
+ * 
+ * @variables:
+ * $fonto-style: Required. Name of the font style. Defaults to normal.
+ * $fonto-color: Color for the font. Overrides any font colors declared for the style. Defaults to false.
+ * $fonto-debug: Prints an invalid CSS style called 'font-style-name' for use in debugging. Does not print if false. Defaults to false.
+ * 
+ */  
+@mixin fontography (
+  $fonto-style: $fonto-style,
+  $fonto-color: $fonto-color,
+  $fonto-debug: $fonto-debug
+) {
+  @extend #{$fontography-prefix}#{$fonto-style};
+}
+
+/**
+ * FONTOGRAPHY - REGISTER STYLE
+ *
+ * Registers a style for presenting fonts.
+ * 
+ * @variables:
+ * $fonto-style: Name of the font style.
+ * $fonto-color: Color for the font.
+ * 
+ */  
+@mixin fontography-register-style (
+  $fonto-style-name:                     $fonto-style-name,
+  $fonto-style-color:                    $fonto-style-color,
+  $fonto-style-size:                     $fonto-style-size,
+  $fonto-style-lines:                    $fonto-style-lines,
+  $fonto-style-family:                   $fonto-style-family,
+  $fonto-style-weight:                   $fonto-style-weight,
+  $fonto-style-text-transform:           $fonto-style-text-transform,
+  $fonto-style-letter-spacing:           $fonto-style-letter-spacing,
+  $fonto-style-font-style:               $fonto-style-font-style,
+  $fonto-style-padding:                  $fonto-style-padding,
+  $fonto-style-margin:                   $fonto-style-margin,
+  $fonto-style-text-align:               $fonto-style-text-align,
+  $fonto-style-text-decoration:          $fonto-style-text-decoration,
+  $fonto-style-text-shadow:              $fonto-style-text-shadow,
+  $fonto-style-border-top:               $fonto-style-border-top,
+  $fonto-style-border-bottom:            $fonto-style-border-bottom,
+  $fonto-style-border-left:              $fonto-style-border-left,
+  $fonto-style-border-right:             $fonto-style-border-right,
+  $fonto-style-hover-color:              $fonto-style-hover-color,
+  $fonto-style-hover-weight:             $fonto-style-hover-weight,
+  $fonto-style-hover-font-style:         $fonto-style-hover-font-style,
+  $fonto-style-hover-padding:            $fonto-style-hover-padding,
+  $fonto-style-hover-margin:             $fonto-style-hover-margin,
+  $fonto-style-hover-text-decoration:    $fonto-style-hover-text-decoration,
+  $fonto-style-hover-text-shadow:        $fonto-style-hover-text-shadow,
+  $fonto-style-active-color:             $fonto-style-active-color,
+  $fonto-style-active-weight:            $fonto-style-active-weight,
+  $fonto-style-active-font-style:        $fonto-style-active-font-style,
+  $fonto-style-active-padding:           $fonto-style-active-padding,
+  $fonto-style-active-margin:            $fonto-style-active-margin,
+  $fonto-style-active-text-decoration:   $fonto-style-active-text-decoration,
+  $fonto-style-active-text-shadow:       $fonto-style-active-text-shadow,
+  $fonto-style-focus-color:              $fonto-style-focus-color,
+  $fonto-style-focus-weight:             $fonto-style-focus-weight,
+  $fonto-style-focus-font-style:         $fonto-style-focus-font-style,
+  $fonto-style-focus-padding:            $fonto-style-focus-padding,
+  $fonto-style-focus-margin:             $fonto-style-focus-margin,
+  $fonto-style-focus-text-decoration:    $fonto-style-focus-text-decoration,
+  $fonto-style-focus-text-shadow:        $fonto-style-focus-text-shadow
+) {
+
+  #{$fontography-prefix}#{$fonto-style-name} {
+  
+    // font size
+    @if $fonto-style-size != false {
+    
+      $font-size: $fonto-style-size;
+      $line-height: $fonto-style-lines;
+      
+      @if unit($font-size) == 'em' {
+        $font-size: $base-font-size * ($fonto-style-size / ($fonto-style-size * 0 + 1));
+      }
+      
+      // unless it's given, calculate line height
+      // should be the same ratio as what exists between the base-font-size and base-line-height
+      @if $fonto-style-lines == false {
+        $line-height: $base-line-height / $base-font-size - 2;
+      }
+
+      @include adjust-font-size-to($font-size, $lines: $line-height);
+      
+    }
+
+    // font color
+    @if $fonto-style-color != false {
+      color: $fonto-style-color;
+    }
+    // font family
+    @if $fonto-style-family != false {
+      font-family: $fonto-style-family;
+    }
+    // font weight
+    @if $fonto-style-weight != false {
+      font-weight: $fonto-style-weight;
+    }
+    // text transform
+    @if $fonto-style-text-transform != false {
+      text-transform: $fonto-style-text-transform;
+    }
+    // text-decoration
+    @if $fonto-style-text-decoration != false {
+      text-decoration: $fonto-style-text-decoration;
+    }
+    // text-shadow
+    @if $fonto-style-text-shadow != false {
+      @include text-shadow($fonto-style-text-shadow);
+    }
+    // text-align
+    @if $fonto-style-text-align != false {
+      text-align: $fonto-style-text-align;
+    }
+    // font-style
+    @if $fonto-style-font-style != false {
+      font-style: $fonto-style-font-style;
+    }
+    // padding
+    @if $fonto-style-padding != false {
+      padding: $fonto-style-padding;
+    }
+    // margin
+    @if $fonto-style-margin != false {
+      margin: $fonto-style-margin;
+    }
+    // borders
+    @if $fonto-style-border-top != false {
+      border-top: $fonto-style-border-top;
+    }
+    @if $fonto-style-border-bottom != false {
+      border-bottom: $fonto-style-border-bottom;
+    }
+    @if $fonto-style-border-left != false {
+      border-left: $fonto-style-border-left;
+    }
+    @if $fonto-style-border-right != false {
+      border-top: $fonto-style-border-right;
+    }    
+    
+    // hover styles
+    @if $fonto-style-hover-color != false or $fonto-style-hover-weight != false or $fonto-style-hover-font-style != false or $fonto-style-hover-padding != false or $fonto-style-hover-margin != false or $fonto-style-hover-text-decoration != false or $fonto-style-hover-text-shadow != false {
+      &:hover {
+        // font color
+        @if $fonto-style-hover-cover != false {
+          color: $fonto-style-hover-cover;
+        }
+        // font weight
+        @if $fonto-style-hover-weight != false {
+          font-weight: $fonto-style-hover-weight;
+        }
+        // font-style
+        @if $fonto-style-hover-font-style != false {
+          font-style: $fonto-style-hover-font-style;
+        }
+        // padding
+        @if $fonto-style-hover-padding != false {
+          padding: $fonto-style-hover-padding;
+        }
+        // margin
+        @if $fonto-style-hover-margin != false {
+          margin: $fonto-style-hover-margin;
+        }
+        // text-decoration
+        @if $fonto-style-hover-text-decoration != false {
+          text-decoration: $fonto-style-hover-text-decoration;
+        }
+        // text-shadow
+        @if $fonto-style-hover-text-shadow != false {
+          @include text-shadow($fonto-style-hover-text-shadow);
+        }
+      }
+    }
+    
+    // active styles
+    @if $fonto-style-active-color != false or $fonto-style-active-weight != false or $fonto-style-active-font-style != false or $fonto-style-active-padding != false or $fonto-style-active-margin != false or $fonto-style-active-text-decoration != false or $fonto-style-active-text-shadow != false {
+      &:active {
+        // font color
+        @if $fonto-style-active-color != false {
+          color: $fonto-style-active-color;
+        }
+        // font weight
+        @if $fonto-style-active-weight != false {
+          font-weight: $fonto-style-active-weight;
+        }
+        // font-style
+        @if $fonto-style-active-font-style != false {
+          font-style: $fonto-style-active-font-style;
+        }
+        // padding
+        @if $fonto-style-active-padding != false {
+          padding: $fonto-style-active-padding;
+        }
+        // margin
+        @if $fonto-style-active-margin != false {
+          margin: $fonto-style-active-margin;
+        }
+        // text-decoration
+        @if $fonto-style-active-text-decoration != false {
+          text-decoration: $fonto-style-active-text-decoration;
+        }
+        // text-shadow
+        @if $fonto-style-active-text-shadow != false {
+          @include text-shadow($fonto-style-active-text-shadow);
+        }
+      }
+    }
+
+    // focus styles
+    @if $fonto-style-focus-color != false or $fonto-style-focus-weight != false or $fonto-style-focus-font-style != false or $fonto-style-focus-padding != false or $fonto-style-focus-margin != false or $fonto-style-focus-text-decoration != false or $fonto-style-focus-text-shadow != false {
+      &:focus {
+        // font color
+        @if $fonto-style-focus-color != false {
+          color: $fonto-style-focus-color;
+        }
+        // font weight
+        @if $fonto-style-focus-weight != false {
+          font-weight: $fonto-style-focus-weight;
+        }
+        // font-style
+        @if $fonto-style-focus-font-style != false {
+          font-style: $fonto-style-focus-font-style;
+        }
+        // padding
+        @if $fonto-style-focus-padding != false {
+          padding: $fonto-style-focus-padding;
+        }
+        // margin
+        @if $fonto-style-focus-margin != false {
+          margin: $fonto-style-focus-margin;
+        }
+        // text-decoration
+        @if $fonto-style-focus-text-decoration != false {
+          text-decoration: $fonto-style-focus-text-decoration;
+        }
+        // text-shadow
+        @if $fonto-style-focus-text-shadow != false {
+          @include text-shadow($fonto-style-focus-text-shadow);
+        }
+      }
+    }
+  }  
+  
+}
+

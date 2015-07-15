@@ -1,0 +1,5 @@
+{
+  "name": "fontography",
+  "description": "SASS font registry. Stores a precise list of fonts for use in a project.",
+  "tags": ["fonts", "ui", "registry","etc"]
+}
