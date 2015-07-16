@@ -31,7 +31,7 @@ $fonto-color:                  false !default;
 $fonto-debug:                  false !default;
 
 // Engine. Tells fontography to use sass-maps or extend statements for generating the maps. Valid values are 'maps' and 'extend.' Defaults to 'extend.' 
-$fonto-engine:                 engine !default;
+$fonto-engine:                 extend !default;
 
 /**
  * FONT PROPERTIES
@@ -81,7 +81,7 @@ $fonto-style-focus-text-shadow:        false !default;
 @if $fonto-engine == 'extend' {
   @import "internal/fontography-extend";
 }
-@if $fonto-engine == 'extend' {
+@if $fonto-engine == 'maps' {
   @import "internal/fontography-maps";
 }
 
