@@ -22,7 +22,7 @@ $fontography-prefix:           ".hey-fontography-" !default;
  */
 
 // Name of the font style. Defaults to normal.
-$fonto-style:                  fales !default;
+$fonto-style:                  'normal' !default;
 
 // Color of the font. This is the single property that can be overridden.
 $fonto-color:                  false !default;
@@ -32,7 +32,6 @@ $fonto-debug:                  false !default;
 
 // Engine. Tells fontography to use sass-maps or extend statements for generating the maps. Valid values are 'maps' and 'extend.' Defaults to 'extend.' 
 $fonto-engine:                 engine !default;
-
 
 /**
  * FONT PROPERTIES
@@ -80,10 +79,10 @@ $fonto-style-focus-text-shadow:        false !default;
 
 // select the engine
 @if $fonto-engine == 'extend' {
-  @include "internal/fontography-extend";
+  @import "internal/fontography-extend";
 }
 @if $fonto-engine == 'extend' {
-  @include "internal/fontography-maps";
+  @import "internal/fontography-maps";
 }
 
 
