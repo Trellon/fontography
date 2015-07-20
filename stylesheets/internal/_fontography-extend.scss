@@ -157,8 +157,8 @@
     @if $fonto-style-hover-color != false or $fonto-style-hover-weight != false or $fonto-style-hover-font-style != false or $fonto-style-hover-padding != false or $fonto-style-hover-margin != false or $fonto-style-hover-text-decoration != false or $fonto-style-hover-text-shadow != false {
       &:hover {
         // font color
-        @if $fonto-style-hover-cover != false {
-          color: $fonto-style-hover-cover;
+        @if $fonto-style-hover-color != false {
+          color: $fonto-style-hover-color;
         }
         // font weight
         @if $fonto-style-hover-weight != false {
